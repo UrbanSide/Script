@@ -1352,6 +1352,50 @@
           "changeWorkdir": false
         }
       }
+    },
+	{
+  "title": "Factorio Docker Server",
+  "language": "en_us",
+  "platform": "Linux",
+  "description": "Quickly deploy a dedicated Factorio server using the official Docker image!",
+  "image": "https://cdn.factorio.com/assets/img/web/factorio-cover-gds-2019-rgb.jpg",
+  "gameType": "Factorio",
+  "category": "Latest Version",
+  "runtime": "Windows/Linux",
+  "hardware": "Intel Core platform, RAM 4G+",
+  "size": "",
+  "targetLink": "https://hub.docker.com/r/factoriotools/factorio",
+  "author": "FreePlayZone",
+  "tags": ["Commercial Use Allowed", "Docker version"],
+  "setupInfo": {
+    "startCommand": "",
+    "stopCommand": "docker stop factorio-server",
+    "ie": "utf8",
+    "oe": "utf8",
+    "type": "steam/universal",
+    "tag": ["Factorio"],
+    "fileCode": "utf8",
+    "processType": "docker",
+    "updateCommand": "docker restart factorio-server",
+    "docker": {
+      "image": "factoriotools/factorio",
+      "containerName": "factorio-server",
+      "ports": [
+        "{mcsm_port1}:34197/udp"
+      ],
+      "extraVolumes": [
+        "{mcsm_workspace}/server:/factorio",
+        "{mcsm_workspace}/server-settings.json:/server-settings.json"
+      ],
+      "workingDir": "/factorio",
+      "env": [
+        "INSTANCE_NAME=Your Instance's Name",
+        "INSTANCE_DESC=Your Instance's Description"
+      ],
+      "changeWorkdir": true
     }
+  }
+}
+
   ]
 }
